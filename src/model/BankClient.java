@@ -1,3 +1,10 @@
+package model;
+
+import java.math.BigDecimal;
+
+import service.Deposit;
+import service.StatementPrinting;
+import service.Withdrawal;
 
 public class BankClient {
 	private Account account;
@@ -17,21 +24,21 @@ public class BankClient {
 	}
 	
 	//withdrawing money from account
-	public void withdraw(float amount) throws Exception {
+	public void withdraw(BigDecimal amount) throws InvalidAmountException {
 		Withdrawal withdrawal = new Withdrawal();
 		withdrawal.execute(account, amount);
 	}
 
 	//depositing money to account
-	public void deposit(float amount) throws Exception {
+	public void deposit(BigDecimal amount) throws InvalidAmountException {
 		Deposit deposit = new Deposit();
 		deposit.execute(account, amount);
 	}
 
 	//printing operations' history
-	public void print() throws Exception {
+	public void print() throws InvalidAmountException {
 		StatementPrinting statementPrinting = new StatementPrinting();
-		statementPrinting.execute(account, 0);
+		statementPrinting.execute(account, new BigDecimal(0));
 	}
 	
 	

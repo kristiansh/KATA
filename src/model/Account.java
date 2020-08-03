@@ -1,21 +1,25 @@
+package model;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import service.Operation;
+
 public class Account {
 	//the amount of money present in the account
-	private float money;
+	private BigDecimal money;
 	//the list of operations done on the account
 	private List<Operation> operations = new ArrayList<Operation>();
 	/**
 	 * @return the money
 	 */
-	public float getMoney() {
+	public BigDecimal getMoney() {
 		return money;
 	}
 	/**
 	 * @param money the money to set
 	 */
-	public void setMoney(float money) {
+	public void setMoney(BigDecimal money) {
 		this.money = money;
 	}
 	/**

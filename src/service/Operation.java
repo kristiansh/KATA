@@ -1,4 +1,9 @@
+package service;
+import java.math.BigDecimal;
 import java.util.Date;
+
+import model.Account;
+import model.InvalidAmountException;
 
 public abstract class Operation {
 	//the name of the operation
@@ -6,12 +11,12 @@ public abstract class Operation {
 	//the date of the execution of the operation
 	Date operationDate;
 	//the amount involved
-	float amount;
+	BigDecimal amount;
 	//the balance at the end
-	float balance;
+	BigDecimal balance;
 	
 	//to be implemented by the various related operations
-	public abstract void execute(Account account, float amount)  throws Exception;
+	public abstract void execute(Account account, BigDecimal amount)  throws InvalidAmountException;
 	
 	//printing operations
 	@Override
